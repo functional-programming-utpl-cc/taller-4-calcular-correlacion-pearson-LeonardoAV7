@@ -1,0 +1,9 @@
+val x = (tabla: List[(Int,Int)]) => tabla.map(x=> x._1)
+val y = (tabla: List[(Int,Int)]) => tabla.map(x=> x._2)
+val sumxy = (tabla: List[(Int,Int)]) => tabla.map(x=> x._1 * x._2).sum
+val n = (tabla: List[(Int,Int)]) => tabla.map(x=> x._1).length
+val media = (colum: List[Int])=> colum.sum.toDouble / colum.length
+val desviacion = (colum: List[Int]) => Math.sqrt( (colum.map(x => Math.pow(x, 2)).sum / colum.length ) - Math.pow(media(colum), 2) )
+val covar = (tabla: List[(Int,Int)]) => ( sumxy(tabla).toDouble / n(tabla) ) - ( media(x(tabla)) * media(y(tabla)) )
+val cPearson = (tabla: List[(Int, Int)]) => covar(tabla) / ( desviacion(x(tabla)) * desviacion(y(tabla)) )
+
